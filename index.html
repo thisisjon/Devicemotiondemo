@@ -1,0 +1,146 @@
+<!--Credit and love to ~jasonteunissen.nl 
+thanks for the stuff :)-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0;"/>    
+  <!-- le stylesheet -->
+  <link rel="stylesheet" href="main.css" type="text/css" media="screen" />
+  <!-- script -->
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <title>Tilt this</title>
+</head>
+
+<body>  
+  <div id="background">   
+  <!-- Gradients -->
+  <span class="gradientleft"></span>
+  <span class="gradientright"></span>
+  <span class="gradientmiddle"></span>
+
+  <div id="logo"></div>
+
+  <div class="leftmarg"></div>
+    <div class="middle">
+      <a id="text" href="http://www.justnod.me" target='_blank'>justnod.me</a>
+    </div> 
+  </div>
+    
+<script>
+$(document).ready(function(){
+
+	//Browser
+	$(document).mousemove(function(e){
+	var pagew = $(window).width()
+	var x = pagew*0.5 -(e.pageX);
+	xx = x;
+
+  console.log(x)
+
+  var xm = 0; //xmiddle
+  var xl = -x;
+  
+  var leftmarginwidth = Math.min(Math.min(15-xm +xl),40);
+  var leftsidewidth = Math.min(Math.min(xl),15);
+  var rightsidewidth = Math.min(Math.min(-xl),15);
+  
+  
+  $(".leftmarg").css("width", leftmarginwidth);
+  $(".leftside").css("width", leftsidewidth);
+  $(".rightside").css("width", rightsidewidth);
+  $(".rightmarg").css("width", 0);
+  
+
+  //Tilt Change gradient Body
+  //Various ways to fade, however I found adding and removing classes was the cleanest method
+  if(leftsidewidth >= '11' ) {
+  $(".gradientmiddle").removeClass('fadein');
+  $(".gradientmiddle").addClass('fadeout');
+  $(".gradientright").removeClass('fadein');
+  $(".gradientright").addClass('fadeout');
+  $(".gradientleft").addClass('fadein');
+  }
+
+  if(rightsidewidth >= '11') {        
+  $(".gradientmiddle").removeClass('fadein');
+  $(".gradientmiddle").addClass('fadeout');
+  $(".gradientleft").removeClass('fadein');
+  $(".gradientleft").addClass('fadeout');
+  $(".gradientright").addClass('fadein');
+  }
+
+  if(rightsidewidth < '11' && leftsidewidth < '11') {             
+  $(".gradientright").removeClass('fadein');
+  $(".gradientright").addClass('fadeout');
+  $(".gradientleft").removeClass('fadein');
+  $(".gradientleft").addClass('fadeout');
+  $(".gradientmiddle").addClass('fadein');
+  }
+  });
+
+  //Mobile/Tablet
+  var xx = 0;
+	window.ondevicemotion = function(event) {
+  var orientation=window.orientation;
+  var input = 0;
+  switch(orientation)
+  {
+  case 0:
+   input = event.accelerationIncludingGravity.x
+   break;
+  case 90:
+   input = -event.accelerationIncludingGravity.y
+   break;
+  case -90:   
+   input = event.accelerationIncludingGravity.y
+   break;
+  }
+          
+  var x = xx*0.6 + -0.4*(input*4);
+  xx = x;         
+
+  var xm = 0; //xmiddle
+  var xl = -x;
+  
+  var leftmarginwidth = Math.min(Math.min(23 -xm +xl),40);
+  var leftsidewidth = Math.min(Math.min(xl),15);
+  var rightsidewidth = Math.min(Math.min(-xl),15);
+  
+  
+  $(".leftmarg").css("width", leftmarginwidth);
+  $(".leftside").css("width", leftsidewidth);
+  $(".rightside").css("width", rightsidewidth);
+  $(".rightmarg").css("width", 0);
+
+  //Tilt Change gradient Body
+  if(leftsidewidth >= '9' ) {
+  $(".gradientmiddle").removeClass('fadein');
+  $(".gradientmiddle").addClass('fadeout');
+  $(".gradientright").removeClass('fadein');
+  $(".gradientright").addClass('fadeout');
+  $(".gradientleft").addClass('fadein');
+  }
+
+  if(rightsidewidth >= '9') {     
+  $(".gradientmiddle").removeClass('fadein');
+  $(".gradientmiddle").addClass('fadeout');
+  $(".gradientleft").removeClass('fadein');
+  $(".gradientleft").addClass('fadeout');
+  $(".gradientright").addClass('fadein');
+  }
+
+  if(rightsidewidth < '9' && leftsidewidth < '9') {               
+  $(".gradientright").removeClass('fadein');
+  $(".gradientright").addClass('fadeout');
+  $(".gradientleft").removeClass('fadein');
+  $(".gradientleft").addClass('fadeout');
+  $(".gradientmiddle").addClass('fadein');
+  }
+	};  
+});
+</script>
+
+</body>
+</html>
+<!-- Localized -->
