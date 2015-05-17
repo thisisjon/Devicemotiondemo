@@ -1,5 +1,6 @@
-<!--Credit and love to ~jasonteunissen.nl 
+<!-- ~Credit and love to ~jasonteunissen.nl 
 thanks for the stuff :)-->
+<!-- ~twitter.com/nodinaus-->
 
 <!DOCTYPE html>
 <html>
@@ -19,11 +20,18 @@ thanks for the stuff :)-->
   <span class="gradientright"></span>
   <span class="gradientmiddle"></span>
 
+  <!-- Images -->
+  <a class="triangle" href="http://www.justnod.me" target='_blank'></a>
+  <a class="circle" href="http://bit.ly/1Hj9PiR" target='_blank'></a>
+  <a class="square" href="http://www.justnod.me" target='_blank'></a>
+
+  <!--
   <div id="logo"></div>
+  -->
 
   <div class="leftmarg"></div>
     <div class="middle">
-      <a id="text" href="http://www.justnod.me" target='_blank'>justnod.me</a>
+      <a id="text" href="http://www.justnod.me" target='_blank'><!--justnod.me--></a>
     </div> 
   </div>
     
@@ -54,28 +62,47 @@ $(document).ready(function(){
 
   //Tilt Change gradient Body
   //Various ways to fade, however I found adding and removing classes was the cleanest method
+
+  //GRADIENT RIGHT
   if(leftsidewidth >= '11' ) {
   $(".gradientmiddle").removeClass('fadein');
   $(".gradientmiddle").addClass('fadeout');
-  $(".gradientright").removeClass('fadein');
-  $(".gradientright").addClass('fadeout');
-  $(".gradientleft").addClass('fadein');
+      $(".circle").removeClass('fadein');//IMAGE
+      $(".circle").addClass('fadeout');//IMAGE
+  $(".gradientleft").removeClass('fadein');
+  $(".gradientleft").addClass('fadeout');
+      $(".triangle").removeClass('fadein');//IMAGE
+      $(".triangle").addClass('fadeout');//IMAGE
+  $(".gradientright").addClass('fadein');
+      $(".square").addClass('fadein');//IMAGE
   }
 
+  //GRADIENT LEFT
   if(rightsidewidth >= '11') {        
   $(".gradientmiddle").removeClass('fadein');
   $(".gradientmiddle").addClass('fadeout');
-  $(".gradientleft").removeClass('fadein');
-  $(".gradientleft").addClass('fadeout');
-  $(".gradientright").addClass('fadein');
-  }
-
-  if(rightsidewidth < '11' && leftsidewidth < '11') {             
+      $(".circle").removeClass('fadein');//IMAGE
+      $(".circle").addClass('fadeout');//IMAGE
   $(".gradientright").removeClass('fadein');
   $(".gradientright").addClass('fadeout');
+      $(".square").removeClass('fadein');//IMAGE
+      $(".square").addClass('fadeout');//IMAGE
+  $(".gradientleft").addClass('fadein');
+      $(".triangle").addClass('fadein');//IMAGE
+  }
+
+  //GRADIENT MIDDLE
+  if(rightsidewidth < '11' && leftsidewidth < '11') {             
   $(".gradientleft").removeClass('fadein');
   $(".gradientleft").addClass('fadeout');
+      $(".square").removeClass('fadein');//IMAGE
+      $(".square").addClass('fadeout');//IMAGE
+  $(".gradientright").removeClass('fadein');
+  $(".gradientright").addClass('fadeout');
+      $(".triangle").removeClass('fadein');//IMAGE
+      $(".triangle").addClass('fadeout');//IMAGE
   $(".gradientmiddle").addClass('fadein');
+      $(".circle").addClass('fadein');//IMAGE
   }
   });
 
@@ -113,32 +140,57 @@ $(document).ready(function(){
   $(".rightside").css("width", rightsidewidth);
   $(".rightmarg").css("width", 0);
 
-  //Tilt Change gradient Body
-  if(leftsidewidth >= '9' ) {
+  //TILT TO CHANGE GRADIENT/IMAGES
+  //GRADIENT RIGHT
+  if(leftsidewidth >= '11' ) {
   $(".gradientmiddle").removeClass('fadein');
   $(".gradientmiddle").addClass('fadeout');
-  $(".gradientright").removeClass('fadein');
-  $(".gradientright").addClass('fadeout');
-  $(".gradientleft").addClass('fadein');
-  }
-
-  if(rightsidewidth >= '9') {     
-  $(".gradientmiddle").removeClass('fadein');
-  $(".gradientmiddle").addClass('fadeout');
+      $(".circle").removeClass('fadein');//IMAGE
+      $(".circle").addClass('fadeout');//IMAGE
   $(".gradientleft").removeClass('fadein');
   $(".gradientleft").addClass('fadeout');
+      $(".triangle").removeClass('fadein');//IMAGE
+      $(".triangle").addClass('fadeout');//IMAGE
   $(".gradientright").addClass('fadein');
+      $(".square").addClass('fadein');//IMAGE
   }
 
-  if(rightsidewidth < '9' && leftsidewidth < '9') {               
+  //GRADIENT LEFT
+  if(rightsidewidth >= '11') {        
+  $(".gradientmiddle").removeClass('fadein');
+  $(".gradientmiddle").addClass('fadeout');
+      $(".circle").removeClass('fadein');//IMAGE
+      $(".circle").addClass('fadeout');//IMAGE
   $(".gradientright").removeClass('fadein');
   $(".gradientright").addClass('fadeout');
+      $(".square").removeClass('fadein');//IMAGE
+      $(".square").addClass('fadeout');//IMAGE
+  $(".gradientleft").addClass('fadein');
+      $(".triangle").addClass('fadein');//IMAGE
+  }
+
+  //GRADIENT MIDDLE
+  if(rightsidewidth < '11' && leftsidewidth < '11') {             
   $(".gradientleft").removeClass('fadein');
   $(".gradientleft").addClass('fadeout');
+      $(".square").removeClass('fadein');//IMAGE
+      $(".square").addClass('fadeout');//IMAGE
+  $(".gradientright").removeClass('fadein');
+  $(".gradientright").addClass('fadeout');
+      $(".triangle").removeClass('fadein');//IMAGE
+      $(".triangle").addClass('fadeout');//IMAGE
   $(".gradientmiddle").addClass('fadein');
+      $(".circle").addClass('fadein');//IMAGE
   }
-	};  
-});
+  };  
+  });
+  
+  //IF MOBILE
+  if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  $('.triangle').css('width','35px');
+  $('.circle').css('width','35px');
+  $('.square').css('width','35px');
+  }
 </script>
 
 </body>
